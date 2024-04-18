@@ -3,12 +3,12 @@ import Slider from "react-slick";
 import Poster from "../images/cover.jpg";
 import Poster2 from "../images/inception.jpg";
 
-function SwipeToSlide() {
+function SwipeToSlide(props) {
   const settings = {
     className: "center",
     infinite: true,
     centerPadding: "60px",
-    slidesToShow: 5,
+    slidesToShow: parseInt(props.display),
     swipeToSlide: true,
     afterChange: function (index) {
       console.log(
