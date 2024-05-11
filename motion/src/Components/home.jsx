@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import Loader from "../Components/loader";
@@ -8,7 +8,6 @@ import MovieCover1 from "../images/movie_collage.jpg";
 import MovieCover2 from "../images/movie_collage2.jpg";
 import MovieCover3 from "../images/movie_collage3.jpg";
 import Poster from "../images/cover.jpg";
-import Poster2 from "../images/inception.jpg";
 
 export default function Home() {
   const items = ["A", "B", "C", "C", "C", "C", "C"];
@@ -16,6 +15,7 @@ export default function Home() {
   const [display,setDisplay]=useState(0);
   const [flag, setFlag] = useState(1);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  var element=["","","","","","","",""];
 
   useEffect(() => {
     // Function to update screenWidth state
@@ -33,26 +33,98 @@ export default function Home() {
   }, [window.innerWidth]); // Empty dependency array ensures that this effect runs only once after component mount
 
   useEffect(() => {
-    if (screenWidth < 768) {
+    element[0] = document.getElementsByClassName("overlay-content-1")[0];
+      element[1] = document.getElementsByClassName("overlay-content-2")[0];
+      element[2] = document.getElementsByClassName("overlay-content-3")[0];
+      element[3] = document.getElementsByClassName("overlay-content-4")[0];
+      element[4] = document.getElementsByClassName("overlay-content-5")[0];
+      element[5] = document.getElementsByClassName("overlay-content-6")[0];
+      element[6] = document.getElementsByClassName("overlay-content-7")[0];
+      element[7] = document.getElementsByClassName("overlay-content-8")[0];
+    if (screenWidth < 600) {
       // Handle mobile screens
       setDisplay(2);
-    } else if (screenWidth >= 768 && screenWidth <= 1024) {
+      element[0].style.top = "0px";
+      element[1].style.top = "100px";
+      document.getElementById("cover-title").style.fontSize="30px";
+      document.getElementById("cover-description").style.fontSize="15px";
+      document.getElementById("cover-description").style.width="50vw";
+      element[2].style.top = "300px";
+      element[3].style.top = "700px";
+      element[4].style.top = "950px";
+      element[5].style.top = "1350px";
+      element[6].style.top = parseInt(element[5].style.top.slice(0,4))+2400+(700*0)+"px";
+      element[7].style.top = parseInt(element[6].style.top.slice(0,4))+100+"px";
+      
+    } else if (screenWidth >= 600 && screenWidth <= 800) {
+      // Handle tablet screens
+      setDisplay(3);
+      element[0].style.top = "0px";
+      element[1].style.top = "100px";
+      element[2].style.top = "450px";
+      element[3].style.top = "850px";
+      element[4].style.top = "1200px";
+      element[5].style.top = "1600px";
+      element[6].style.top = parseInt(element[5].style.top.slice(0,4))+1050+(700*0)+"px";
+      element[7].style.top = parseInt(element[6].style.top.slice(0,4))+100+"px";
+
+    }else if (screenWidth >= 800 && screenWidth <= 1024) {
       // Handle tablet screens
       setDisplay(4);
-    } else if (screenWidth > 1024 && screenWidth <= 1440) {
+      element[0].style.top = "0px";
+      element[1].style.top = "100px";
+      element[2].style.top = "400px";
+      element[3].style.top = "800px";
+      element[4].style.top = "1400px";
+      element[5].style.top = "1800px";
+      element[6].style.top = parseInt(element[5].style.top.slice(0,4))+1050+(700*0)+"px";
+      element[7].style.top = parseInt(element[6].style.top.slice(0,4))+100+"px";
+
+    }else if (screenWidth > 1024 && screenWidth <= 1200) {
+      // Handle laptop screens
+      setDisplay(5);
+      element[0].style.top = "0px";
+      element[1].style.top = "300px";
+      element[2].style.top = "600px";
+      element[3].style.top = "1000px";
+      element[4].style.top = "1450px";
+      element[5].style.top = "1850px";
+      element[6].style.top = parseInt(element[5].style.top.slice(0,4))+800+(700*0)+"px";
+      element[7].style.top = parseInt(element[6].style.top.slice(0,4))+100+"px";
+
+    }
+    else if (screenWidth > 1200 && screenWidth <= 1440) {
       // Handle laptop screens
       setDisplay(6);
+      element[0].style.top = "0px";
+      element[1].style.top = "300px";
+      element[2].style.top = "600px";
+      element[3].style.top = "1000px";
+      element[4].style.top = "1450px";
+      element[5].style.top = "1850px";
+      element[6].style.top = parseInt(element[5].style.top.slice(0,4))+800+(700*0)+"px";
+      element[7].style.top = parseInt(element[6].style.top.slice(0,4))+100+"px";
+
     } else if (screenWidth > 1440) {
       // Handle desktop screens
-      setDisplay(8);
+      setDisplay(7);
+      element[0].style.top = "0px";
+      element[1].style.top = "300px";
+      element[2].style.top = "600px";
+      element[3].style.top = "1000px";
+      element[4].style.top = "1450px";
+      element[5].style.top = "1850px";
+      element[6].style.top = parseInt(element[5].style.top.slice(0,4))+800+(700*0)+"px";
+      element[7].style.top = parseInt(element[6].style.top.slice(0,4))+100+"px";
     }
+
   }, [screenWidth]); // Run this effect whenever screenWidth changes
    
 
   if (flag === 1) {
     return (
       <>
-        <div className="video-container">
+        <div className="video-container bor">
           <video id="bg-video" loop muted autoPlay>
             <source src={CoverVid} type="video/mp4" />
           </video>
@@ -64,9 +136,7 @@ export default function Home() {
               <div id="cover-title">Spider-Man: No Way Home</div>
               <div id="cover-description">
                 Spider-Man seeks the help of Doctor Strange to forget his
-                exposed secret identity as Peter Parker. However, Strange's
-                spell goes horribly wrong, leading to unwanted guests entering
-                their universe.
+                exposed secret identity as Peter Parker. 
               </div>
               <div className="flex">
                 <div id="cover-button-1">
@@ -86,14 +156,14 @@ export default function Home() {
           </div>
           <div className="overlay-content-4" >
             <div>Featured Collections</div>
-            <div className="mt-4 container">
+            <div className="bor mt-4 container justify-center items-center">
               <div className="home-box item">
                 <div>
                   The Best <br />
                   Mystical Shows
                 </div>
                 <div>
-                  <img src={MovieCover1} alt="" />
+                  <img src={MovieCover1} alt=""/>
                 </div>
               </div>
               <div className="home-box item">
@@ -138,9 +208,10 @@ export default function Home() {
           <div className="overlay-content-7" >
             <button id="home-show-button">Show More</button>
           </div>  
-        </div>
-        <div className="overlay-content-8">
-          <Footer></Footer>
+       
+          <div className="overlay-content-8">
+            <Footer></Footer>
+          </div>
         </div>
       </>
     );

@@ -8,11 +8,11 @@ export default function footer() {
   
   return (
     <>
-    <div id="horDivider"></div>
-  <footer id="footer" className="container">
+  <footer id="footer" className="container bor">
+  <div id="horDivider"></div>
     <div className="footer-sub-1 item flex p-4">
       <div className='flex justify-center items-center ml-4 mr-4'>
-        <a  className='text-white' href="">motion.com</a>
+        <a className='text-white' href="">motion.com</a>
       </div>
       <div className='flex justify-center items-center ml-4 mr-4'>
         <a href="">Terms & Privacy</a>
