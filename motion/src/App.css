@@ -12,7 +12,7 @@ body {
 }
 
 .bor {
-  border: 1px solid white;
+  border: 0px solid white;
 }
 
 .container {
@@ -30,9 +30,8 @@ body {
 #navbar {
   background-color: #00000000;
   width: 100vw;
-  height: fit-content;
   padding: 10px;
-  padding-right: 0px;
+  margin-left: 15px;
 }
 
 #navTitle {
@@ -60,7 +59,7 @@ body {
   background-color: #3f3c3767;
   color: white;
   margin-left: 2%;
-  width: 45vw;
+  width: 44.5vw;
   margin-right: 1vw;
   margin-left: 1vw;
   border-radius: 15px;
@@ -123,14 +122,13 @@ body {
 
 #horDivider {
   border: 1px solid rgba(255, 255, 255, 0.2);
-  width: 100%;
+  width: 100vw;
 }
 
 /* footer.js */
 
 #footer {
-  width: 100vw;
-  height: fit-content;
+  width: 90vw;
   padding: 1.5%;
   padding-top: 0.5%;
   padding-top: 0.5%;
@@ -198,7 +196,8 @@ body {
 /* VideoWithOverlay.css */
 .video-container {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  height: 100%;
 }
 
 #bg-video {
@@ -210,7 +209,7 @@ body {
 .overlay-content-1 {
   position: absolute;
   top: 0vh;
-  left: 1vw;
+  left: 0vw;
   color: white;
   z-index: 1; /* Ensure overlay content appears above the video */
 }
@@ -274,9 +273,9 @@ body {
 
 .home-box {
   margin: 1vw;
-  margin-left: 0vw;
-  width: 29vw;
-  height: 55vh;
+  margin-left: 20px;
+  width: 26vw;
+  height: fit-content;
   border-radius: 15px;
   padding: 1vw;
   padding-top: 2vw;
